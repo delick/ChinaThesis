@@ -2,12 +2,34 @@
 
 \chapter{引用文献的标注}
 
+\section{学校说明}
+参考文献论文中按“作者，年”，如（邓起东，2000）,见~\ref{sec:author-year}。文后按例编写并按拼音自动排列，文献作者姓名写到第三位，余者写“，等”或“，et al.”（此模板已符合要求）。
+几种主要参考文献著录表的格式为：
+\begin{enumerate}
+\item \textbf{连续出版物}：序号作者.文题.刊名，年，卷号(期号)：起--止页码。
+\item \textbf{专（译）著}：序号作者.书名(，译者).出版地：出版者，出版年. 起--止页码。
+\item \textbf{论文集}：序号作者.文题.见(in)：编者，编(eds.).文集名.出版地：出版者，出版年. 起--止页码。
+\item \textbf{学位论文}：序号姓名.文题：[XX学位论文].授予单位所在地：授予单位，授予年。
+\item \textbf{专利}：序号申请者.专利名.国名，专利文献种类，专利号，出版日期。
+\item \textbf{技术标准}：序号发布单位.技术标准代号.技术标准名称.出版地：出版者，出版日期。
+\end{enumerate}
+
+举例如下：
+\begin{enumerate}
+\item 王琪，丁国瑜，乔学军，等. 天山现今地壳快速缩短与南北地块的相对运动. 科学通报，2000，45（14）：1538～1542
+\item 邓起东，冯先岳，张培震，等. 天山活动构造. 北京：地震出版社，2000 
+\item Dupont B. Bone marrow transplantation in severe combined immunodeficiency with an unrelated MLC compatible donor. In: White H J, Smith R, eds. Proceedings of the Third Annual Meeting of the International Society for Experimental Hematology. \item Houston: International Society for Experimental Hematology, 1974. 44~46
+\item 任收麦. 阿尔金断裂运动学特征与活动时间约束：[博士学位论文]. 吉林：吉林大学，2002
+\item 姜锡洲. 一种温热外敷药制备方法.中国专利，881056073，1980-07-26
+\item 中华人民共和国国家技术监督局. GB3100~3102. 中华人民共和国国家标准－量与单位.北京：中国标准出版社，1994-11-01
+\end{enumerate}
+
+\section{顺序编码制}
+
 模板使用 \pkg{natbib} 宏包来设置参考文献引用的格式，
 更多引用方法可以参考该宏包的使用说明。
 
-
-
-\section{顺序编码制}
+按照学校要求，正文的引用格式可用 \verb|\citep{knuth86a}| 代码实现，效果为：~\citep{knuth86a}。如需修改引用格式，请在 \texttt{main.tex} 文件中 frontmatter 之后（第 55 行）修改 \verb|\citestyle{authoryear}|，可选参数如下：
 
 \subsection{角标数字标注法}
 
@@ -36,13 +58,13 @@
 
 
 
-\section{著者-出版年制标注法}
+\subsection{著者-出版年制标注法}\label{sec:author-year}
 
 \citestyle{authoryear}
 \noindent
 \begin{tabular}{l@{\quad$\Rightarrow$\quad}l}
   \verb|\cite{knuth86a}|         & \cite{knuth86a}         \\
-  \verb|\citep{knuth86a}|        & \citep{knuth86a}        \\
+  \verb|\citep{knuth86a}|        & \citep{knuth86a} $\surd$\\
   \verb|\cite[42]{knuth86a}|     & \cite[42]{knuth86a}     \\
   \verb|\cite{knuth86a,tlc2}|    & \cite{knuth86a,tlc2}    \\
   \verb|\cite{knuth86a,knuth84}| & \cite{knuth86a,knuth84} \\

@@ -3,7 +3,9 @@
 \chapter{浮动体}
 
 \section{三线表}
-
+\subsection{学校说明}
+表中参数应标明量和单位的符号；表序及表名置于表的上方。
+\subsection{模板说明}
 三线表是《撰写手册》推荐使用的格式，如表~\ref{tab:exampletable}。
 \begin{table}[htb]
   \centering\small
@@ -30,14 +32,16 @@
 
 
 \section{插图}
-
+\subsection{学校说明}
+图：精选，要具有代表性； 清楚，坐标比例要适中，同一图上不同曲线的点用不同形状标出并说明；图中的术语、符号、单位等应同文字表述所用一致；图序及图名居中置于图的正下方。
+\subsection{模板说明}
 有的同学可能听说“\LaTeX{} 只能使用 eps 格式的图片”，甚至把 jpg 格式转为 eps。
 事实上，这种做法已经过时。
 而且每次编译时都要要调用外部工具解析 eps，导致降低编译速度。
 所以我们推荐矢量图直接使用 pdf 格式，位图使用 jpeg 或 png 格式。
 \begin{figure}[htb]
   \centering
-  \includegraphics[width=0.3\textwidth]{figures/chinathesis-logo.pdf}
+  \includegraphics[width=0.35\textwidth]{figures/cugbthesis-logo-center.pdf}
   \caption{图号、图题置于图的下方}
   \label{fig:logo}
   \note{注：图注的内容不宜放到图题中。}

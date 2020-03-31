@@ -238,8 +238,10 @@
     \ustc@setenglish
   \fi
 }
-\newcommand\ustc@universityname{中国大学}
-\newcommand\ustc@enuniversityname{University of China}
+\newcommand\ustc@universityname{中国地质大学（北京）}
+\newcommand\ustc@universitynameshort{中国地质大学}
+\newcommand\ustc@enuniversityname{China University of Geosciences (Beijing)}
+\newcommand\ustc@enuniversitynameshort{China University of Geosciences}
 \ifustc@chinese
   \renewcommand\listfigurename{插图清单}
   \renewcommand\listtablename{表格清单}
@@ -292,9 +294,12 @@
   \csname #1\endcsname{#2}%
 }
 \ustc@define@term{title}{论文题目}
+\ustc@define@term{studentNum}{XXX}
 \ustc@define@term{author}{XXX}
 \ustc@define@term{major}{XXX}
-\ustc@define@term{supervisor}{XXX\quad 教授}
+\ustc@define@term{direction}{XXX}
+\ustc@define@term{endirection}{XXX}
+\ustc@define@term{supervisor}{XXX\quad 副教授}
 \ustc@define@term{cosupervisor}{}
 \ustc@define@term{date}{\zhnumsetup{time=Chinese}\zhtoday}
 \ustc@define@term{professionaltype}{专业学位类型}
@@ -303,7 +308,7 @@
 \ustc@define@term{entitle}{Title}
 \ustc@define@term{enauthor}{XXX}
 \ustc@define@term{enmajor}{XXX}
-\ustc@define@term{ensupervisor}{Prof. XXX}
+\ustc@define@term{ensupervisor}{Asst. Prof. XXX}
 \ustc@define@term{encosupervisor}{}
 \ustc@define@term{endate}{\CTEX@todayold}
 \ustc@define@term{enprofessionaltype}{Professional degree type}
@@ -311,15 +316,15 @@
 \ustc@define@term{keywords}{}
 \ustc@define@term{enkeywords}{}
 \ifustc@doctor
-  \newcommand\ustc@thesisname{博士学位论文}
-  \newcommand\ustc@enthesisname{A dissertation for doctor's degree}
+  \newcommand\ustc@thesisname{博\ \ 士\ \ 学\ \ 位\ \ 论\ \ 文}
+  \newcommand\ustc@enthesisname{A Dissertation Submitted to\\ \ustc@enuniversitynameshort for Doctor Degree}
 \else
   \ifustc@master
-    \newcommand\ustc@thesisname{硕士学位论文}
-    \newcommand\ustc@enthesisname{A dissertation for master's degree}
+    \newcommand\ustc@thesisname{硕\ \ 士\ \ 学\ \ 位\ \ 论\ \ 文}
+    \newcommand\ustc@enthesisname{A Dissertation Submitted to\\ \ustc@enuniversitynameshort for Master's Degree}
   \else
-    \newcommand\ustc@thesisname{学士学位论文}
-    \newcommand\ustc@enthesisname{A dissertation for bachelor's degree}
+    \newcommand\ustc@thesisname{学\ \ 士\ \ 学\ \ 位\ \ 论\ \ 文}
+    \newcommand\ustc@enthesisname{A Dissertation Submitted to\\ \ustc@enuniversitynameshort for Bachelor's Degree}
   \fi
 \fi
 \newcommand\ustc@pdfbookmark{\@gobble}
@@ -338,67 +343,70 @@
   \ustc@setchinese
   \begin{titlepage}%
     \ustc@pdfbookmark{封面}%
+	\cleardoublepage
+	\thispagestyle{empty}
+	\setlength{\parindent}{0em}
     \centering
     \parbox[t][0.6cm][t]{\textwidth}{%
-      \raggedleft\fangsong\fontsize{14\bp@}{14\bp@}\selectfont
-      \null\ustc@secretlevel\par}\par
-    \vskip 0.5cm%
-    {\sffamily\bfseries\fontsize{36\bp@}{36\bp@}\selectfont
+      \songti\fontsize{15pt}{0pt}\selectfont 分类号 \hfill \ustc@secretlevel 密级}\par
+    \vskip 30pt%
+    {\fangsong\fontsize{26pt}{0pt}\selectfont 
       \ustc@universityname\par}
-    \vskip 0.6cm%
-    {\sffamily\fontsize{56\bp@}{56\bp@}\selectfont
+    \vskip 35pt%
+    {\sffamily\fangsong\fontsize{42pt}{0pt}\selectfont
       \ustc@thesisname\par}%
-    \vskip 2.0cm%
-    \includegraphics[height=4.1cm]{figures/chinathesis-logo.pdf}\par
-    \vskip 0.9cm%
-    \parbox[t][3.5cm][c]{\textwidth}{%
-      \centering\sffamily\bfseries\fontsize{26\bp@}{50\bp@}\selectfont
+    \vskip 80pt%
+    \parbox[t][3cm][c]{\textwidth}{%
+      \centering\sffamily\fontsize{26\bp@}{50\bp@}\selectfont
       \ustc@title\par}\par
-    \vskip 0.6cm%
-    {\fontsize{16\bp@}{31\bp@}\selectfont
-      \begin{tabular}{@{}l@{\hspace{\ccwd}}l@{}}%
-        \textsf{作者姓名：} & \ustc@author \\
-        \textsf{学科专业：} & \ustc@major \\
-        \textsf{导师姓名：} & \ustc@supervisor\quad\ustc@cosupervisor \\
-        \textsf{完成时间：} & \ustc@date
+    \vskip 80pt%
+    {\fangsong\fontsize{16pt}{20pt}\selectfont
+	\renewcommand{\arraystretch}{1.65}
+      \begin{tabular}{p{34mm} p{60mm}}
+	    \textbf{学\hspace{\stretch{1}}号} &： \textbf{\ustc@studentNum} \\
+        \textbf{研\hspace{\stretch{1}} 究 \hspace{\stretch{1}}生} &： \ustc@author \\
+        \textbf{专\hspace{\stretch{1}}业} &： \ustc@major \\
+		\textbf{研\hspace{\stretch{1}}究\hspace{\stretch{1}}方\hspace{\stretch{1}}向} &： \ustc@direction \\
+        \textbf{指\hspace{\stretch{1}}导\hspace{\stretch{1}}教\hspace{\stretch{1}}师} &： \ustc@supervisor\quad\ustc@cosupervisor \\
       \end{tabular}\par}%
+	\vskip 60pt
+	\songti\fontsize{16pt}{0pt}\selectfont \ustc@date
   \end{titlepage}%
   \ustc@setdefaultlanguage
 }
 \newcommand\ustc@supervisorline{%
   \ifx\ustc@encosupervisor\@empty
-    Supervisor: \ustc@ensupervisor
+    Dissertation Supervisor: \ustc@ensupervisor
   \else
-    Supervisors: \ustc@ensupervisor, \ustc@encosupervisor
+    Dissertation Supervisors: \ustc@ensupervisor, \ustc@encosupervisor
   \fi
 }
 \newcommand\ustc@makeentitle{%
   \ustc@setenglish
   \begin{titlepage}%
     \ustc@pdfbookmark{Title page}%
+	\clearpage
+	\thispagestyle{empty}
+	\ 
+	\vskip 20pt
     \centering
-    \parbox[t][0.4cm][t]{\textwidth}{%
-      \raggedleft\fontsize{14\bp@}{14\bp@}\selectfont
-      \null\ustc@ensecretlevel\par}\par
-    \vskip 0.5cm%
-    {\sffamily\fontsize{20\bp@}{30\bp@}\selectfont
-      \ustc@enuniversityname\par}%
-    {\sffamily\fontsize{26\bp@}{30\bp@}\selectfont
-      \ustc@enthesisname\par}%
-    \vskip 2.5cm%
-    \includegraphics[height=4.5cm]{figures/chinathesis-logo.pdf}\par
-    \vskip 0.5cm%
-    \parbox[t][4.5cm][c]{\textwidth}{%
-      \centering\sffamily\bfseries\fontsize{26\bp@}{30\bp@}\selectfont
-      \ustc@entitle\par}\par
-    \vskip 1.6cm%
-    {\fontsize{16\bp@}{30\bp@}\selectfont
+    \fontsize{16pt}{28pt}\selectfont\centering \textbf{\ustc@enthesisname}
+    \vskip 4cm%
+	\centering\textbf{
+      \ustc@entitle}
+    \vskip 5cm%
+    {\bfseries\fangsong\fontsize{16pt}{20pt}\selectfont
+	  \renewcommand{\arraystretch}{1.65}
       \begin{tabular}{@{}l@{}}%
-        Author:        \ustc@enauthor \\
-        Speciality:    \ustc@enmajor \\
-        \ustc@supervisorline \\
-        Finished time: \ustc@endate
+        Master Candidate:        \ustc@enauthor \\
+        Major:    \ustc@enmajor \\
+		Study Orientation:    \ustc@endirection \\
+        \ustc@supervisorline
       \end{tabular}\par}%
+	  \vskip 4cm
+	  \centering \textbf{
+	  \ustc@enuniversityname
+	  }
   \end{titlepage}%
   \ustc@setdefaultlanguage
 }
@@ -412,18 +420,16 @@
   \pagestyle{plain}%
 }
 \newcommand\ustc@originality{%
-  本人声明所呈交的学位论文，是本人在导师指导下进行研究工作所取得的成果。%
-  除已特别加以标注和致谢的地方外，论文中不包含任何他人已经发表或撰写过的%
-  研究成果。%
-  与我一同工作的同志对本研究所做的贡献均已在论文中作了明确的说明。}
+  本人声明所呈交的论文是我个人在导师指导下进行的研究工作及取得的研究成果。%
+  尽我所知，除了文中特别加以标注和致谢的地方外，论文中不包含其他人已经发表%
+  或撰写过的研究成果，也不包含为获得\ustc@universitynameshort{}或其它教育机构的学位%
+  或证书而使用过的材料。与我一同工作的同志对本研究所做的任何贡献均已在论文中%
+  作了明确的说明并表示了谢意。}
 \newcommand\ustc@authorization{%
-  作为申请学位的条件之一，学位论文著作权拥有者授权\ustc@universityname{}拥有%
-  学位论文的部分使用权，%
-  即：学校有权按有关规定向国家有关部门或机构送交论文的复印件和电子版，%
-  允许论文被查阅和借阅，可以将学位论文编入《中国学位论文全文数据库》等%
-  有关数据库进行检索，可以采用影印、缩印或扫描等复制手段保存、汇编学位论文。%
-  本人提交的电子文档的内容和纸质论文的内容相一致。\par
-  保密的学位论文在解密后也遵守此规定。}
+  本人完全了解\ustc@universitynameshort{}有关保留、使用学位论文的规定，即：%
+  学校有权保留送交论文的复印件，允许论文被查阅和借阅；学校可以公布论文的全部%
+  或部分内容，可以采用影印、缩印或其他复制手段保存论文。
+  }
 \newcommand\ustc@underline[2][3.2cm]{\underline{\hb@xt@ #1{\hss#2\hss}}}
 \newcommand\ustc@checkbox{%
   \makebox[\z@][l]{$\square$}%
@@ -433,33 +439,29 @@
   \begin{titlepage}%
     \ustc@pdfbookmark{原创性和授权使用声明}%
     \null
-    \vskip 0.3cm%
-    {\centering\sffamily\fontsize{16\bp@}{32\bp@}\selectfont
-      \ustc@universityname{}学位论文原创性声明\par}%
-    \vskip 0.7cm%
+    \vskip 10pt%
+    {\centering\sffamily\LARGE\selectfont
+      声明\par}%
+    \vskip 15pt%
     \ustc@originality\par
-    \vskip 1.3cm%
-    作者签名：\ustc@underline{}\hspace{2.7cm}%
-    签字日期：\ustc@underline{}\par
-    \vskip 1.9cm%
-    {\centering\sffamily\fontsize{16\bp@}{32\bp@}\selectfont
-      \ustc@universityname{}学位论文授权使用声明\par}%
+    \vskip 2cm%
+    \hspace*{0pt}\hfill 签~名：\ustc@underline{}\hspace{0.2cm}%
+    日~期：\ustc@underline{}\par
+    \vskip 5cm%
+    {\centering\sffamily\LARGE\selectfont
+      关于论文使用授权的说明\par}%
     \vskip 0.7cm%
     \ustc@authorization\par
-    \vskip 0.6cm%
+    \vskip 20pt%
     \ifx\ustc@secretlevel\@empty
       \ustc@checkbox{} 公开\quad
-      $\square$ 保密（\ustc@underline[0.85cm]{}年）\par
+      $\square$ 保密（\ustc@underline[1cm]{}年）\hspace{1cm}\fontsize{13pt}{0pt}\selectfont \textbf{(保密的论文在解密后应遵守此规定)}\par
     \else
       $\square$ 公开\quad
-      \ustc@checkbox{} 保密（\ustc@underline[0.8cm]{\ustc@secretyear}年）\par
+      \ustc@checkbox{} 保密（\ustc@underline[1cm]{\ustc@secretyear}年）\hspace{1cm}\fontsize{13pt}{0pt}\selectfont \textbf{(保密的论文在解密后应遵守此规定)}\par
     \fi
-    \vskip 0.5cm%
-    作者签名：\ustc@underline{}\hspace{2.7cm}%
-    导师签名：\ustc@underline{}\par
-    \vskip 0.5cm%
-    签字日期：\ustc@underline{}\hspace{2.7cm}%
-    签字日期：\ustc@underline{}\par
+    \vskip 2cm%
+	\songti \fontsize{13pt}{0pt}\selectfont 签~名：\underline{\hspace{3cm}}导师签名：\underline{\hspace{3cm}}日~ 期：\underline{\hspace{3cm}}
   \end{titlepage}%
 }
 \setcounter{secnumdepth}{5}

@@ -2,23 +2,27 @@
 % !TeX program = xelatex
 % !TeX spellcheck = en_US
 
-\documentclass[doctor]{chinathesis}
+\documentclass[doctor, chinese, super, AutoFakeBold]{chinathesis}
 % doctor|master|bachelor [chinese|english] [print|pdf] [super|numebers|authoryear]
 
-\title{中文学位论文\\LaTeX 模板框架}
-\author{李泽平}
-\major{计算机科学与技术}
-\supervisor{高德纳\ 教授}
+\title{论文题目\\预留两行长度}
+\author{输入作者姓名}
+\major{输入作者专业}
+\direction{输入研究方向}
+\supervisor{输入老师姓名~教授}
+\studentNum{输入学号}
+
 % \cosupervisor{}
-% \date{二〇一七年五月一日} % 注释掉则为今日
+\date{xxxx年xx月} % 注释掉则为今日
 % \professionaltype{专业学位类型}
-% \secretlevel{秘密}        % 绝密|机密|秘密，注释本行则不保密
+% \secretlevel{密级}        % 绝密|机密|秘密，注释本行则不保密
 % \secretyear{20}           % 保密年限
 
-\entitle{A LaTeX template framework for Chinese dissertations}
-\enauthor{Zeping Li}
-\enmajor{Computer Science and Technology}
-\ensupervisor{Prof. Donald E. Knuth}
+\entitle{English Title Here\\Space for Two Lines}
+\enauthor{English name here}
+\enmajor{English major here}
+\endirection{English direction here}
+\ensupervisor{Assoc. Prof. name}
 % \encosupervisor{}
 % \endate{May 1, 2017}      % Today if commented
 % \enprofessionaltype{Professional degree type}
@@ -42,13 +46,13 @@
 \newcommand\ts{\symbfsf}
 \newcommand\real{\mathbf{R}}
 
-
 \begin{document}
 
 \maketitle
 \makestatement
 
 \frontmatter
+\citestyle{authoryear}
 \input{chapters/abstract}
 \tableofcontents
 % \listoffigures
